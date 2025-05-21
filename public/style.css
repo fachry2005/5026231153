@@ -1,0 +1,42 @@
+/* Reset CSS */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+/* Styling dasar */
+body {
+  text-align: center;
+  background-color: #f4f4f4;
+  padding: 20px;
+}
+
+/* Header */
+header {
+  margin-bottom: 20px;
+}
+
+/* Container gambar */
+.image-container {
+  max-width: 800px;
+  margin: auto;
+}
+
+.image-container img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  object-fit: cover;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Media Query untuk layar kecil */
+@media (max-width: 600px) {
+  .image-container img {
+      border-radius: 5px;
+      box-shadow: none;
+  }
+}
