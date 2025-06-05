@@ -10,7 +10,7 @@ class PegawaiDBController extends Controller
     public function index()
     {
     	// mengambil data dari table pegawai
-    	//$pegawai = DB::table('pegawai')->get(); //all records in array
+    	// $pegawai = DB::table('pegawai')->get(); //all records in array
         $pegawai = DB::table('pegawai')->paginate(10);
 
     	// mengirim data pegawai ke view index
@@ -42,7 +42,9 @@ public function store(Request $request)
 public function edit($id)
 {
 	// mengambil data pegawai berdasarkan id yang dipilih
-	$pegawai = DB::table('pegawai')->where('pegawai_id',$id)->get();
+	$pegawai = DB::table('pegawai')
+    ->where('pegawai_id',$id) //khusus tanda =
+    ->get();
 	// passing data pegawai yang didapat ke view edit.blade.php
 	return view('edit',['pegawai' => $pegawai]);
 
@@ -52,7 +54,9 @@ public function edit($id)
 public function update(Request $request)
 {
 	// update data pegawai
-	DB::table('pegawai')->where('pegawai_id',$request->id)->update([
+	DB::table('pegawai')
+    ->where('pegawai_id',$request->id)
+    ->update([
 		'pegawai_nama' => $request->nama,
 		'pegawai_jabatan' => $request->jabatan,
 		'pegawai_umur' => $request->umur,
@@ -66,7 +70,9 @@ public function update(Request $request)
 public function hapus($id)
 {
 	// menghapus data pegawai berdasarkan id yang dipilih
-	DB::table('pegawai')->where('pegawai_id',$id)->delete();
+	DB::table('pegawai')
+    ->where('pegawai_id',$id)
+    ->delete();
 
 	// alihkan halaman ke halaman pegawai
 	return redirect('/pegawai');
