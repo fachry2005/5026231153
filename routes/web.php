@@ -6,6 +6,8 @@ use App\Http\Controllers\PegawaiController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\PegawaiDBController;
 use App\Http\Controllers\RAMController;
+use App\Http\Controllers\KaryawanController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -81,3 +83,5 @@ Route::get('/pegawai/hapus/{id}', [PegawaiController::class, 'hapus']);
 Route::get('/pegawai/cari', [PegawaiController::class, 'cari']);
 
 Route::resource('ram', RAMController::class);
+
+Route::resource('karyawan', KaryawanController::class);
