@@ -7,7 +7,7 @@ use App\Http\Controllers\BlogController;
 use App\Http\Controllers\PegawaiDBController;
 use App\Http\Controllers\RAMController;
 use App\Http\Controllers\KaryawanController;
-
+use App\Http\Controllers\PageCounterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -85,3 +85,5 @@ Route::get('/pegawai/cari', [PegawaiController::class, 'cari']);
 Route::resource('ram', RAMController::class);
 
 Route::resource('karyawan', KaryawanController::class);
+
+Route::get('/latihan1', [PageCounterController::class, 'index']);
