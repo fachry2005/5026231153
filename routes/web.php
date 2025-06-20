@@ -8,7 +8,7 @@ use App\Http\Controllers\PegawaiDBController;
 use App\Http\Controllers\RAMController;
 use App\Http\Controllers\KaryawanController;
 use App\Http\Controllers\PageCounterController;
-
+use App\Http\Controllers\NewKaryawanController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -87,3 +87,14 @@ Route::resource('ram', RAMController::class);
 Route::resource('karyawan', KaryawanController::class);
 
 Route::get('/latihan1', [PageCounterController::class, 'index']);
+
+Route::prefix('eas')->group(function () {
+    Route::get('/', [NewKaryawanController::class, 'index'])->name('newkaryawan.index');
+    Route::get('/create', [NewKaryawanController::class, 'create'])->name('newkaryawan.create');
+    Route::post('/store', [NewKaryawanController::class, 'store'])->name('newkaryawan.store');
+    Route::get('/delete/{nip}', [NewKaryawanController::class, 'destroy'])->name('newkaryawan.destroy');
+    Route::get('/eas/edit/{nip}', [NewKaryawanController::class, 'edit'])->name('newkaryawan.edit');
+Route::put('/eas/update/{nip}', [NewKaryawanController::class, 'update'])->name('newkaryawan.update');
+
+});
+
